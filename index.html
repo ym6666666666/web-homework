@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>万物互联、极致体验</title>
+    <!-- 素材包提供的 iconfont 图标库（Font Awesome） -->
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <style>
+        /* ================= 内部CSS ================= */
+        /* 素材包提供的字体 */
+        @font-face {
+            font-family: 'ShuFa';
+            src: url('fonts/shufa.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        /* 基础重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Microsoft YaHei", "微软雅黑", "PingFang SC", sans-serif;
+            color: #000000;
+            background-color: #ffffff;
+            min-height: 100vh;
+        }
+        /* 顶部大标题 */
+        .site-title {
+            font-family: 'ShuFa', 'KaiTi', '楷体', serif;
+            font-size: 64px;
+            font-weight: normal;
+            color: #000000;
+            text-align: center;
+            letter-spacing: 10px;
+            padding-top: 80px;
+        }
+
+        /* 中间两个并排卡片 */
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            max-width: 1140px;
+            margin: 56px auto 0;
+            padding: 0 20px;
+        }
+        .card {
+            flex: 1;
+            max-width: 540px;
+            padding: 20px 32px 36px;
+            text-align: center;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            transition: none;
+        }
+
+        .card .fa-html5 {
+            font-size: 78px;
+            color: #000000;
+        }
+        /* 第二张卡片图标，去掉白色圆底座 */
+        .card .icon-circle {
+            width: auto;
+            height: auto;
+            margin:0 auto;
+        }
+        .card .icon-circle img {
+            width: 96px;
+        }
+        .card p {
+            text-align: justify;
+            font-size: 14px;
+            line-height: 2;
+            color: #222222;
+        }
+        /* 平台支持 */
+        .platforms {
+            max-width: 1140px;
+            margin: 76px auto 80px;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .section-title {
+            font-family: 'ShuFa', 'KaiTi', '楷体', serif;
+            font-size: 46px;
+            font-weight: normal;
+            color: #000000;
+            letter-spacing: 8px;
+        }
+        .platform-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 56px;
+            margin-top: 46px;
+            align-items: flex-start;
+        }
+        .platform-item {
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        /* 统一图标容器大小，保证图标底部对齐 */
+        .platform-item .icon-circle {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+        .platform-item .icon-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .platform-item p {
+            margin-top: 18px;
+            font-size: 15px;
+            color: #000000;
+            letter-spacing: 2px;
+            line-height:1.5;
+        }
+        /* 小屏适配 */
+        @media (max-width: 900px) {
+            .site-title {
+                font-size: 42px;
+                letter-spacing: 6px;
+            }
+            .cards {
+                flex-direction: column;
+                align-items: center;
+            }
+            .platform-list {
+                gap: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="site-title">万物互联、极致体验</h1>
+    </header>
+    <section class="cards">
+        <div class="card">
+            <i class="fa fa-html5"></i>
+            <p>[HTML5]不仅仅是HTML规范的当前最新版本，HTML5进化的重大意义还在于HTML5从技术层面带来了八个类别的革新。HTML5规范以“用户至上”为宗旨。也就是说在遇到冲突时，规范的优先级为：用户&gt;页面作者&gt;实现者（浏览器）&gt;规范开发者（W3C/WHATWG）&gt;纯理论。除此之外，HTML5还引入了一种新的安全模型来保证HTML5足够安全。</p>
+        </div>
+        <div class="card">
+            <div class="icon-circle"><img src="images/2.png" alt="HTML5"></div>
+            <p>[HTML5]不仅仅是HTML规范的当前最新版本，HTML5进化的重大意义还在于HTML5从技术层面带来了八个类别的革新。HTML5规范以“用户至上”为宗旨。也就是说在遇到冲突时，规范的优先级为：用户&gt;页面作者&gt;实现者（浏览器）&gt;规范开发者（W3C/WHATWG）&gt;纯理论。除此之外，HTML5还引入了一种新的安全模型来保证HTML5足够安全。</p>
+        </div>
+    </section>
+    <section class="platforms">
+        <h2 class="section-title">平台支持</h2>
+        <div class="platform-list">
+            <div class="platform-item">
+                <div class="icon-circle"><img src="images/3.png" alt="苹果"></div>
+                <p>原生移动APP开发</p>
+            </div>
+            <div class="platform-item">
+                <div class="icon-circle"><img src="images/4.png" alt="微信"></div>
+                <p>微信公共平台开发</p>
+            </div>
+            <div class="platform-item">
+                <div class="icon-circle"><img src="images/5.png" alt="电脑"></div>
+                <p>网站开发</p>
+            </div>
+            <div class="platform-item">
+                <div class="icon-circle"><img src="images/6.png" alt="笔记本"></div>
+                <p>桌面应用开发</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
