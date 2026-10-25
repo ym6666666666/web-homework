@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数据看板 · 响应式</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="layout">
+    <!-- 侧栏：仅在桌面（≥1200px）出现，移动/平板时为顶部导航 -->
+    <aside class="sidebar" aria-label="主导航">
+      <div class="brand">
+        <svg class="brand__icon" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="7" height="7" rx="1.5" fill="currentColor"/>
+          <rect x="14" y="3" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.6"/>
+          <rect x="3" y="14" width="7" height="7" rx="1.5" fill="currentColor" opacity="0.6"/>
+          <rect x="14" y="14" width="7" height="7" rx="1.5" fill="currentColor"/>
+        </svg>
+        <span class="brand__name">数据看板</span>
+      </div>
+      <nav class="nav" aria-label="页面导航">
+        <a class="nav__item is-active" href="#">概览</a>
+        <a class="nav__item" href="#">流量</a>
+        <a class="nav__item" href="#">订单</a>
+        <a class="nav__item" href="#">用户</a>
+        <a class="nav__item" href="#">设置</a>
+      </nav>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <h1>运营数据概览</h1>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false">
+          <svg class="theme-toggle__icon" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" fill="currentColor"/>
+          </svg>
+          <span class="theme-toggle__label">深色</span>
+        </button>
+      </header>
+
+      <!-- 卡片区：语义化 section，6 条数据由 JS 数组渲染 -->
+      <section class="metrics" id="metrics" aria-label="核心指标">
+        <!-- JS 注入 -->
+      </section>
+
+      <section class="panels" aria-label="明细面板">
+        <article class="panel">
+          <h2>实时趋势</h2>
+          <p class="panel__hint">PC / 平板 / 手机三档断点已生效，缩放窗口查看布局变化。</p>
+          <div class="bars" id="bars" aria-hidden="true"></div>
+        </article>
+        <article class="panel">
+          <h2>断点说明</h2>
+          <ul class="bp-list">
+            <li><b>&lt; 768px</b>：单列堆叠，侧栏转为顶部导航</li>
+            <li><b>768–1199px</b>：两列网格</li>
+            <li><b>≥ 1200px</b>：四列指标卡 + 固定侧栏</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

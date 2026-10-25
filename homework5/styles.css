@@ -1,0 +1,221 @@
+/* ============ CSS 变量：浅色 / 深色主题 ============ */
+:root {
+  --bg: #f5f6fa;
+  --surface: #ffffff;
+  --surface-2: #f0f2f7;
+  --text: #1f2430;
+  --text-soft: #6b7280;
+  --border: #e4e7ee;
+  --accent: #4f7cff;
+  --accent-soft: #eaf0ff;
+  --pos: #16a34a;   /* 涨 / 正向 */
+  --neg: #dc2626;   /* 跌 / 负向 */
+  --shadow: 0 1px 3px rgba(20, 30, 60, .08), 0 6px 20px rgba(20, 30, 60, .06);
+  --radius: 14px;
+  --sidebar-w: 232px;
+}
+
+html[data-theme="dark"] {
+  --bg: #0f1320;
+  --surface: #181d2e;
+  --surface-2: #20263a;
+  --text: #e8ebf5;
+  --text-soft: #9aa3b8;
+  --border: #2a3150;
+  --accent: #6f95ff;
+  --accent-soft: #1d2742;
+  --pos: #34d399;
+  --neg: #f87171;
+  --shadow: 0 1px 3px rgba(0, 0, 0, .4), 0 6px 20px rgba(0, 0, 0, .35);
+}
+
+/* ============ 基础 ============ */
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Microsoft YaHei", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  /* 320px~1920px 全程不出横向滚动条 */
+  overflow-x: hidden;
+}
+
+img, svg { display: block; }
+
+/* 数字等宽，切换主题/数值时不抖动 */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ============ 布局骨架 ============ */
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* 移动端：侧栏在顶部，主区在下 */
+}
+
+.main {
+  flex: 1;
+  min-width: 0; /* 防止子元素把容器撑出横向滚动 */
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---- 侧栏：移动/平板为顶部横向导航 ---- */
+.sidebar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+}
+.brand__icon { flex: none; }
+.brand__name { font-weight: 700; font-size: 18px; color: var(--text); }
+
+.nav { display: flex; flex-wrap: wrap; gap: 6px; }
+.nav__item {
+  flex: 1 1 auto;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 10px;
+  color: var(--text-soft);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.nav__item.is-active, .nav__item:hover { background: var(--accent-soft); color: var(--accent); }
+
+/* ---- 顶栏 ---- */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.topbar h1 { font-size: 20px; margin: 0; }
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+.theme-toggle__icon { flex: none; color: var(--accent); }
+
+/* ---- 指标卡网格：grid + auto-fit/minmax，不写死宽度 ---- */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card__head { display: flex; align-items: center; gap: 10px; }
+.card__icon {
+  width: 38px; height: 38px;
+  flex: none;
+  display: grid; place-items: center;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+.card__icon svg { width: 20px; height: 20px; }
+.card__label { color: var(--text-soft); font-size: 13px; }
+.card__value { font-size: 26px; font-weight: 700; }
+.card__trend { font-size: 13px; font-weight: 600; }
+.card__trend.up { color: var(--pos); }
+.card__trend.down { color: var(--neg); }
+
+/* ---- 底部面板 ---- */
+.panels {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+.panel h2 { margin: 0 0 8px; font-size: 16px; }
+.panel__hint { color: var(--text-soft); font-size: 13px; margin: 0 0 12px; }
+.bp-list { margin: 0; padding-left: 18px; color: var(--text-soft); font-size: 14px; }
+.bp-list li { margin: 4px 0; }
+.bp-list b { color: var(--text); }
+
+.bars { display: flex; align-items: flex-end; gap: 10px; height: 120px; }
+.bars span {
+  flex: 1;
+  background: linear-gradient(var(--accent), var(--accent-soft));
+  border-radius: 6px 6px 0 0;
+}
+
+/* ============ 断点 1：平板 768–1199 → 两列网格 ============ */
+@media (min-width: 768px) {
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+  .panels { grid-template-columns: repeat(2, 1fr); }
+  .main { padding: 20px; }
+}
+
+/* ============ 断点 2：桌面 ≥1200 → 四列指标卡 + 固定侧栏 ============ */
+@media (min-width: 1200px) {
+  .layout { flex-direction: row; }
+  .sidebar {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    width: var(--sidebar-w);
+    height: 100vh;
+    border-bottom: none;
+    border-right: 1px solid var(--border);
+    flex-direction: column;
+    padding: 22px 16px;
+  }
+  .nav { flex-direction: column; flex-wrap: nowrap; }
+  .nav__item { text-align: left; flex: none; }
+  .main { padding: 28px 32px; max-width: 1480px; margin: 0 auto; }
+  .metrics { grid-template-columns: repeat(4, 1fr); }
+  .topbar h1 { font-size: 24px; }
+}
+
+/* 极窄屏 320px 时也保证不溢出 */
+@media (max-width: 360px) {
+  .main { padding: 12px; }
+  .card__value { font-size: 22px; }
+}

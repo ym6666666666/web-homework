@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>登录 - AI 助教答疑平台</title>
+	<style>
+		:root {
+			color-scheme: light;
+			font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+			color: #172b4d;
+			background: #f3f7ff;
+		}
+		* {
+			box-sizing: border-box;
+		}
+		body {
+			min-height: 100vh;
+			min-height: 100svh;
+			margin: 0;
+			padding: 40px 20px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 26px;
+			background:
+				radial-gradient(ellipse at 12% 8%, rgb(219 234 254 / 80%), transparent 32%),
+				linear-gradient(145deg, #f7faff, #edf4ff);
+		}
+		header {
+			display: flex;
+			align-items: center;
+			gap: 14px;
+		}
+		header h1 {
+			margin: 0;
+			font-size: 22px;
+			font-weight: 700;
+		}
+		header p {
+			margin: 5px 0 0;
+			color: #6b7d99;
+			font-size: 14px;
+		}
+		.brand-mark {
+			width: 48px;
+			height: 48px;
+			flex: 0 0 48px;
+			display: grid;
+			place-items: center;
+			border-radius: 14px;
+			background: #2563eb;
+			color: #fff;
+			font-size: 16px;
+			font-weight: 700;
+			box-shadow: 0 6px 14px rgb(37 99 235 / 22%);
+		}
+		main {
+			width: min(100%, 440px);
+			padding: 36px 38px;
+			border: 1px solid #e0e8f5;
+			border-radius: 14px;
+			background: #fff;
+			box-shadow: 0 18px 50px rgb(31 67 127 / 10%);
+		}
+		h2 {
+			margin: 0;
+			font-size: 24px;
+			font-weight: 700;
+		}
+		.form-description {
+			margin: 8px 0 26px;
+			color: #71819b;
+			font-size: 14px;
+			line-height: 1.6;
+		}
+		form > div {
+			margin-bottom: 20px;
+		}
+		label {
+			display: block;
+			margin-bottom: 9px;
+			font-size: 14px;
+			font-weight: 600;
+		}
+		input {
+			width: 100%;
+			min-height: 48px;
+			padding: 11px 14px;
+			border: 1px solid #d3deed;
+			border-radius: 7px;
+			background: #fbfcff;
+			color: #172b4d;
+			font: inherit;
+			transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+		}
+		input::placeholder {
+			color: #9aa8bd;
+		}
+		input:focus {
+			border-color: #4b82ef;
+			outline: none;
+			background: #fff;
+			box-shadow: 0 0 0 4px rgb(37 99 235 / 12%);
+		}
+		button {
+			width: 100%;
+			min-height: 48px;
+			margin-top: 2px;
+			border: 0;
+			border-radius: 7px;
+			background: #2563eb;
+			color: #fff;
+			font: inherit;
+			font-weight: 600;
+			cursor: pointer;
+			transition: background 160ms ease, transform 160ms ease;
+		}
+		button:hover {
+			background: #1d4ed8;
+		}
+		button:active {
+			transform: translateY(1px);
+		}
+		.register-link {
+			margin: 22px 0 0;
+			text-align: center;
+			font-size: 14px;
+			color: #71819b;
+		}
+		.register-link a {
+			color: #2563eb;
+			font-weight: 600;
+			text-decoration: none;
+		}
+		.register-link a:hover {
+			text-decoration: underline;
+		}
+		@media (max-width: 480px) {
+			body {
+				padding: 28px 16px;
+				gap: 22px;
+			}
+			main {
+				padding: 28px 22px;
+			}
+			header h1 {
+				font-size: 19px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header>
+		<div class="brand-mark" aria-hidden="true">AI</div>
+		<div>
+			<h1>AI 助教答疑平台</h1>
+			<p>欢迎回来，继续你的学习</p>
+		</div>
+	</header>
+
+	<main>
+		<section aria-labelledby="login-title">
+			<h2 id="login-title">账号登录</h2>
+			<p class="form-description">登录后继续使用 AI 助教进行学习答疑</p>
+
+			<form action="#" method="post">
+				<div>
+					<label for="account">账号</label>
+					<input
+						type="text"
+						id="account"
+						name="account"
+						autocomplete="username"
+						placeholder="请输入用户名或手机号"
+						required
+					>
+				</div>
+
+				<div>
+					<label for="password">密码</label>
+					<input
+						type="password"
+						id="password"
+						name="password"
+						autocomplete="current-password"
+						placeholder="请输入 6 到 16 位密码"
+						pattern=".{6,16}"
+						title="密码必须为 6 到 16 位"
+						required
+					>
+				</div>
+
+				<button type="submit">登录</button>
+			</form>
+
+			<p class="register-link">还没有账号？<a href="homework1.html">立即注册</a></p>
+		</section>
+	</main>
+</body>
+</html>
